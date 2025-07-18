@@ -1,10 +1,4 @@
-/**
-* Template Name: HomeSpace
-* Template URL: https://bootstrapmade.com/homespace-bootstrap-real-estate-template/
-* Updated: Jul 05 2025 with Bootstrap v5.3.7
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+
 
 (function() {
   "use strict";
@@ -129,3 +123,32 @@
   window.addEventListener("load", initSwiper);
 
 })();
+
+function openCalculatorModal() {
+  document.getElementById('calculatorModal').style.display = 'flex';
+}
+
+function closeCalculatorModal() {
+  document.getElementById('calculatorModal').style.display = 'none';
+}
+
+function closeModalOnOutsideClick(e) {
+  if (e.target.id === 'calculatorModal') {
+    closeCalculatorModal();
+  }
+}
+
+function calculateMortgage() {
+  const amount = parseFloat(document.getElementById('loanAmount').value);
+  const rate = parseFloat(document.getElementById('interestRate').value) / 100 / 12;
+  const term = parseFloat(document.getElementById('loanTerm').value) * 12;
+
+  if (!amount || !rate || !term) return;
+
+  const monthly = (amount * rate) / (1 - Math.pow(1 + rate, -term));
+  const resultDiv = document.getElementById('mortgageResult');
+
+  resultDiv.innerHTML = `
+    <strong>Monthly Payment:</strong> £${monthly.toFixed(2)}
+  `;
+}

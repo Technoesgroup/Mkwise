@@ -1,29 +1,20 @@
-/**
-* Template Name: HomeSpace
-* Template URL: https://bootstrapmade.com/homespace-bootstrap-real-estate-template/
-* Updated: Jul 05 2025 with Bootstrap v5.3.7
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
 @charset "UTF-8";
 
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
-/* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Montserrat",  sans-serif;
+  --default-font: "Poppins";
+  --heading-font: "Poppins";
+  --nav-font: "Poppins";
+  --highlight-font: "Playfair Display";
+
 }
+
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #263a31; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #103524; /* Color for headings, subheadings and title throughout the website */
+  --default-color: #242525; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #323232; /* Color for headings, subheadings and title throughout the website */
   --accent-color: #0d83fd; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
@@ -31,11 +22,11 @@
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #ffffff;  /* The default color of the main navmenu links */
+  --nav-color: #000000;  /* The default color of the main navmenu links */
   --nav-hover-color: #0d83fd; /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #ffffff; /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-color: #000000; /* Used for navigation links of the dropdown items in the navigation menu. */
   --nav-dropdown-hover-color: #0d83fd; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
@@ -154,22 +145,43 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: #e6e6e6;
+  --background-color: #ffffff;
   --default-color: #131313;
   --heading-color: #010101;
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 15px 0;
+  padding: 10px 0;
   transition: all 0.5s;
   z-index: 997;
+
+  /* Soft blurred bottom shadow */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
+.get-started-btn {
+  background-color: #007bff; /* Change to your theme color */
+  color: #fff;
+  padding: 7px 13px;
+  border-radius: 50px; /* Fully rounded edges */
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  border-color: transparent;
+}
+
+.get-started-btn:hover {
+  background-color: #368ce8; /* Darker on hover */
+  color: #fff;
+}
+
 
 .header .logo {
   line-height: 1;
 }
 
 .header .logo img {
-  max-height: 46px;
+  max-height: 75px;
   margin-right: 8px;
 }
 
@@ -215,9 +227,9 @@ h6 {
   .navmenu a:focus {
     color: var(--nav-color);
     padding: 18px 15px;
-    font-size: 15px;
+    font-size: 16px;
     font-family: var(--nav-font);
-    font-weight: 600;
+    font-weight: 300;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -731,7 +743,7 @@ section,
 .hero {
   position: relative;
   padding-top: 40px;
-  background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 95%) 50%, color-mix(in srgb, var(--accent-color), transparent 98%) 25%, transparent 50%);
+  /* background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 95%) 50%, color-mix(in srgb, var(--accent-color), transparent 98%) 25%, transparent 50%); */
 }
 
 .hero::before {
@@ -741,7 +753,7 @@ section,
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 90% 10%, color-mix(in srgb, var(--accent-color), transparent 92%), transparent 40%);
+  /* background: radial-gradient(circle at 90% 10%, color-mix(in srgb, var(--accent-color), transparent 92%), transparent 40%); */
   pointer-events: none;
 }
 
@@ -8944,4 +8956,45 @@ section,
 
 .call-to-action-2 .cta-btn:hover {
   border-color: var(--contrast-color);
+}
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.5);
+  backdrop-filter: blur(4px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Modal Box */
+.modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+z-index: 10000;
+}
+
+/* Close Button */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
